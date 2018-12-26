@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="C:\Users\Mayank\Desktop\js\css\custom.css">
+</head>
+<body>
+ <center>
+    <h1>CALCULATOR</h1>
+ 	
+ 		<table border="2" cellpadding="20">
+ 			<tr>
+ 				<td colspan="4"><input class="i1" type="text" id="in" value=""></td>
+ 			</tr>
+ 			<tr align="center">
+ 				<td><input class="btn" type="button" name="" value="1" onclick="num(1)"></td>
+ 				<td><input class="btn" type="button" name="" value="2" onclick="num(2)"></td>
+ 				<td><input class="btn" type="button" name="" value="3" onclick="num(3)"></td>
+ 				<td><input class="btn" type="button" name="" value="AC" onclick="del()"></td>
+ 			</tr>
+ 			<tr align="center">
+ 				<td><input class="btn" type="button" name="" value="4" onclick="num(4)"></td>
+ 				<td><input class="btn" type="button" name="" value="5" onclick="num(5)"></td>
+ 				<td><input class="btn" type="button" name="" value="6" onclick="num(6)"></td>
+ 				<td><input class="btn" type="button" name="" value="-" onclick="sub()"></td>
+ 			</tr>
+ 			<tr align="center">
+ 				<td><input class="btn" type="button" name="" value="7" onclick="num(7)"></td>
+ 				<td><input class="btn" type="button" name="" value="8" onclick="num(8)"></td>
+ 				<td><input class="btn" type="button" name="" value="9" onclick="num(9)"></td>
+ 				<td><input class="btn" type="button" name="" value="*" onclick="mul()"></td>
+ 			</tr>
+ 			<tr align="center">
+ 				<td><input class="btn" type="button" name="" value="=" onclick="ans()"></td>
+ 				<td><input class="btn" type="button" name="" value="0" onclick="num(0)"></td>
+ 				<td><input class="btn" type="button" name="" value="/" onclick="division()"></td>
+ 				<td><input class="btn" type="button" name="" value="+" onclick="add()"></td>
+ 			</tr>
+ 		</table>
+ 		<script>
+            var c='';
+            function num(i){
+              c=c+""+i;
+              document.getElementById("in").value=c; 
+            }
+
+            function division(){
+                c=c+""+" "+"/"+" ";
+                document.getElementById("in").value=c;
+            }
+
+            function mul(){
+                c=c+""+" "+"*"+" ";
+                document.getElementById("in").value=c;
+            }
+
+            function sub(){
+                c=c+""+" "+"-"+" ";
+                document.getElementById("in").value=c;
+            }
+
+            function add(){
+                c=c+""+" "+"+"+" ";
+                document.getElementById("in").value=c;
+            }
+
+            function ans(){
+                var x = "";
+                var b = c.split(" ");
+                var j=0;
+                while(j<b.length){
+                    if(b[j+1]=='/'){
+                        x = b[j]/b[j+2];
+                    }
+                    else if(b[j+1]=='*'){
+                        x = b[j]*b[j+2];
+                    }
+                    else if(b[j+1]=='-'){
+                        x = b[j]-b[j+2];
+                    }
+                    else if(b[j+1]=='+'){
+                        x = parseFloat(b[j])+parseFloat(b[j+2]);
+                    }
+
+                    if(j+2 == b.length)
+                    {
+                       j=j+1;
+                    }
+                    j=j+2;
+                }
+                document.getElementById("in").value=x;
+                c='';
+            }
+            function del(){
+                document.getElementById("in").value='';
+                c='';
+            }
+        </script>
+ 	
+ </center>
+
+</body>
+</html>
